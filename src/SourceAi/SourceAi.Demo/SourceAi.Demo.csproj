@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>preview</LangVersion>
+        <EnablePreviewFeatures>true</EnablePreviewFeatures>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        
+        <!-- SourceAi API Key Configuration (choose one method):
+             
+             Option 1 (Recommended): Set environment variable SOURCEAI_API_KEY
+               Windows: setx SOURCEAI_API_KEY "your-api-key"
+               Linux/Mac: export SOURCEAI_API_KEY="your-api-key"
+             
+             Option 2: Set MSBuild property (NOT recommended for source control):
+               <SourceAiApiKey>your-api-key</SourceAiApiKey>
+             
+             Option 3: Pass via command line:
+               dotnet build -p:SourceAiApiKey=your-api-key
+        -->
+        
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SourceAi\SourceAi.csproj" />
+      <ProjectReference Include="..\SourceAi\SourceAi.csproj"
+                        OutputItemType="Analyzer"
+                        ReferenceOutputAssembly="false" />
+    </ItemGroup>
+    
+    <Import Project="..\SourceAi\build\SourceAi.props" Condition="Exists('..\SourceAi\build\SourceAi.props')" />
+</Project>

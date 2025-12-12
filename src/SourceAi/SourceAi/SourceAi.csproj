@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>preview</LangVersion>
+        <Nullable>enable</Nullable>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <LangVersion>preview</LangVersion>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="build\SourceAi.props" Pack="true" PackagePath="build" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true"
+              PackagePath="analyzers/dotnet/cs" Visible="false" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+<Project>
+    <PropertyGroup>
+        <Features>InterceptorsPreview</Features>
+        <InterceptorsNamespaces>$(InterceptorsNamespaces);Ai.Generated</InterceptorsNamespaces>
+        <NoWarn>$(NoWarn);CS0626</NoWarn>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <CompilerVisibleProperty Include="SourceAiApiKey" />
+        <CompilerVisibleProperty Include="SourceAiCachePath" />
+        <CompilerVisibleProperty Include="IntermediateOutputPath" />
+    </ItemGroup>
+</Project>
